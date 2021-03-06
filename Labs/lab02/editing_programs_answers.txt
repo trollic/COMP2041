@@ -11,20 +11,20 @@ to
 
 
 1) Write a sed command to change all the functions from V1 to V2.
-Q1 answer: 
+Q1 answer: sed -E "s/([^p])_V1/\1_V2/g" program.c
 
 
 2) Write a sed command to remove all single line comments starting with TODO or FIXME.
-Q2 answer: 
+Q2 answer: sed -E "s/\/\/ TODO.*//g" program.c | sed -E "s/.*FIXME.*//g"
 
 
 3) Write a sed command to print all lines starting with extern.
-Q3 answer: 
+Q3 answer: sed -n -e '/extern/p' program.c
 
 
 4) Write a sed command to replace all include statements using "" with <>.
-Q4 answer: 
+Q4 answer: sed -E 's/#include (")([^"]*)(")/#include <\2>/g' program.c
 
 
 5) Write a sed command to remove the main method.
-Q5 answer: 
+Q5 answer: sed -e '53,63d' program.c
